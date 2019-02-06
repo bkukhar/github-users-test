@@ -1,3 +1,10 @@
+const inputEntered = document.getElementById("username");
+inputEntered.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+        document.getElementById("search").click();
+    }
+});
+
 let data;
 
 const api = 'https://api.github.com/search/users?q=';
@@ -7,23 +14,23 @@ const api = 'https://api.github.com/search/users?q=';
 let input;
 
 function gotSearchData(data) {
-document.getElementById('search').addEventListener('click', function(){
-    input = document.getElementById('username').value;
-    const url = api + input;
-    fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    if (data) {
-        const users = data.items;
-        const currentResult = document.querySelector('.result');
-        currentResult.parentNode.removeChild(currentResult);
-        const refreshedResult = document.createElement('DIV');
-        refreshedResult.setAttribute('class', 'result');
-        document.querySelector('.public-api-result').appendChild(refreshedResult);
-        domPage(users);
-}
-});
-});
+    document.getElementById('search').addEventListener('click', function() {
+        input = document.getElementById('username').value;
+        const url = api + input;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+                    const users = data.items;
+                    const currentResult = document.querySelector('.result');
+                    currentResult.parentNode.removeChild(currentResult);
+                    const refreshedResult = document.createElement('DIV');
+                    refreshedResult.setAttribute('class', 'result');
+                    document.querySelector('.public-api-result').appendChild(refreshedResult);
+                    domPage(users);
+                }
+            });
+    });
 }
 
 
@@ -69,4 +76,3 @@ function domPage(users) {
 }
 
 gotSearchData(data);
-
