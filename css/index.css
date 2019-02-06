@@ -3,10 +3,8 @@
 body {
     max-width: 700px;
     margin: 30px auto;
-    box-shadow: 0 0 10px #ebebeb;
     font-family: 'Roboto', sans-serif;
     background-color: #B6D4D1;
-    ;
 }
 
 .header-content,
@@ -186,9 +184,16 @@ button:hover {
     background-color: #fff;
 }
 
+main {
+    box-shadow: 0 0 10px #ebebeb;
+}
+
+.profile {
+    padding: 25px 20px;
+}
+
 .user-profile {
     border: 1px solid #ebebeb;
-    margin: 25px 20px 15px;
     background-color: #8DBCB6;
 }
 
